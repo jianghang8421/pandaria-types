@@ -51,6 +51,9 @@ type Client struct {
 	DestinationRule               DestinationRuleOperations
 	Gateway                       GatewayOperations
 	CloneApp                      CloneAppOperations
+	VirtualServer                 VirtualServerOperations
+	TLSProfile                    TLSProfileOperations
+	TransportServer               TransportServerOperations
 }
 
 func NewClient(opts *clientbase.ClientOpts) (*Client, error) {
@@ -107,6 +110,9 @@ func NewClient(opts *clientbase.ClientOpts) (*Client, error) {
 	client.DestinationRule = newDestinationRuleClient(client)
 	client.Gateway = newGatewayClient(client)
 	client.CloneApp = newCloneAppClient(client)
+	client.VirtualServer = newVirtualServerClient(client)
+	client.TLSProfile = newTLSProfileClient(client)
+	client.TransportServer = newTransportServerClient(client)
 
 	return client, nil
 }
